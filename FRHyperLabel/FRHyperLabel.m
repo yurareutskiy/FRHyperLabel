@@ -127,6 +127,8 @@ static UIColor *FRHyperLabelLinkColorHighlight;
 			[UIView transitionWithView:self duration:highLightAnimationTime options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
 				self.attributedText = attributedString;
 			} completion:nil];
+			void(^handler)(FRHyperLabel *label, NSRange selectedRange) = self.handlerDictionary[rangeValue];
+                        handler(self, [rangeValue rangeValue]);
 			return;
 		}
 	}
